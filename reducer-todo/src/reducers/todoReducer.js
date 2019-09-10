@@ -1,11 +1,27 @@
+
 export const initialState = {
-    item: 'Learn about reducers',
-    completed: false,
-    id: 3892987589
-  };
+    data: [
+        {
+        item: 'Learn about reducers',
+        completed: false,
+        id: 3892987589
+        }
+]}
 
 export const todoReducer = (state, action) => {
-    return (
-        console.log("todoReducer state: ", state)
-    )
+    switch (action.type) {
+        case "TOGGLE_EDITING":
+          return {
+            ...state,
+            editing: !state.editing
+          };
+        case "UPDATE_TASK":
+          return {
+            ...state,
+            editing: !state.editing,
+            task: action.payload
+          };
+        default:
+          return state;
+      }
 }
