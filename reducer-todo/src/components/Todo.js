@@ -1,13 +1,18 @@
 import React, { useReducer, useState } from 'react';
-import { todoReducer, initialState } from '../reducers/todoReducer';
+import { todoReducer, initialState } from '../reducers';
 
-const TodoItem = () => {
-  const [state, dispatch] = useReducer(todoReducer, initialState);
-  const [taskList, setTaskList] = useState([]);
+const Todo = () => {
+  
+  const [newTask, setNewTask] = useState();
 
   const handleChanges = e => {
-    setTaskList(...state, item: e.target.value);
+    setNewTask(e.target.value);
   };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.addTask(newTask)
+  }
 
   return (
     <div>
@@ -42,4 +47,4 @@ const TodoItem = () => {
   );
 };
 
-export default TodoItem;
+export default Todo;

@@ -1,6 +1,6 @@
 
 export const initialState = {
-    data: [
+    todoList: [
         {
         item: 'Learn about reducers',
         completed: false,
@@ -8,19 +8,26 @@ export const initialState = {
         }
 ]}
 
-export const todoReducer = (state, action) => {
+export const reducer = (state, action) => {
     switch (action.type) {
         case "TOGGLE_EDITING":
           return {
             ...state,
             editing: !state.editing
           };
-        case "UPDATE_TASK":
+        case "ADD_TASK":
           return {
             ...state,
+            newTask
             editing: !state.editing,
             task: action.payload
           };
+        case "UPDATE_TASK":
+            return {
+            ...state,
+            editing: !state.editing,
+            task: action.payload
+         };
         default:
           return state;
       }
