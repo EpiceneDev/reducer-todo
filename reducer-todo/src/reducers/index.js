@@ -10,19 +10,17 @@ export const initialState = {
 }
 
 export const reducer = (state, action) => {
+  console.log('reducer action', action)
     switch (action.type) {
-        // case "TOGGLE_EDITING":
-        //   return {
-        //     ...state,
-        //     editing: !state.editing
-        //   };
-        // case "ADD_TASK":
-        //   return {
-        //     ...state,
-        //     newTask
-        //     editing: !state.editing,
-        //     task: action.payload
-        //   };
+        case "ADD_TODO":
+          return {
+            ...state,
+            todoArray: [...state.todoArray, {
+              item: action.payload,
+              completed: false,
+              id: Date.now()
+            }]
+          };
         // case "UPDATE_TASK":
         //     return {
         //     ...state,
@@ -31,5 +29,5 @@ export const reducer = (state, action) => {
         //  };
         default:
           return state;
-      }
+    }
 }

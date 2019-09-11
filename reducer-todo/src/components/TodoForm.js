@@ -12,7 +12,7 @@ export const TodoForm = ({addTodo}) => {
     };
 
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <input 
                 type="text" 
                 name="item" 

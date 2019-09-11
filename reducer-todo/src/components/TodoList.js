@@ -1,5 +1,4 @@
 import React, { useReducer } from 'react';
-// import Todo from './Todo';
 
 const TodoList = ({ todoArray }) => {
     return (
