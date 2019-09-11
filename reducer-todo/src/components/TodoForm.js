@@ -17,6 +17,7 @@ export const TodoForm = ({addTodo}) => {
                 type="text" 
                 name="item" 
                 placeholder="todo" 
+                value={item}
                 onChange={handleChange} />
             <button type="submit">Add Todo</button>
         </form>

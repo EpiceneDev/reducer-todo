@@ -16,8 +16,8 @@ function App() {
  
   return (
     <div className="App">
-      <TodoForm addTodo={addTodo} />
       <TodoList todoArray={state.todoArray} />
+      <TodoForm addTodo={addTodo} />
     </div>
   )
 } 

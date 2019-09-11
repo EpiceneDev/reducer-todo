@@ -21,12 +21,6 @@ export const reducer = (state, action) => {
               id: Date.now()
             }]
           };
-        // case "UPDATE_TASK":
-        //     return {
-        //     ...state,
-        //     editing: !state.editing,
-        //     task: action.payload
-        //  };
         default:
           return state;
     }
