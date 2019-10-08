@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useReducer } from 'react';
+import { initialState, reducer } from "../reducers";
 
-const TodoList = ({ todoArray }) => {
+const TodoList = () => {
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    const addTodo = (item) => {
+        dispatch({
+          type: "ADD", 
+          payload: item
+        })
+      }
+
     return (
         <div>
             <h2>Todo List via Redux</h2>
-            {todoArray.map(todo => <div key={todo.id}>{todoArray.item}</div>)}
+            <ul>
+             {state.todoArray.map(todo => <li key={todo.id}>{todo.item}</li>)}
+            </ul>
         </div>
     )
 };

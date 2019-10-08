@@ -12,7 +12,7 @@ export const initialState = {
 export const reducer = (state, action) => {
   console.log('reducer action', action)
     switch (action.type) {
-        case "ADD_TODO":
+        case "ADD":
           return {
             ...state,
             todoArray: [...state.todoArray, {
