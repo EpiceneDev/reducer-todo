@@ -10,7 +10,7 @@ const Todos = () => {
     const [ { todos }, dispatch ] = useReducer(reducer, initialState);
 
     const AddNewTodo = todoText => {
-        dispatch({ type: 'NEW_TODO', payload: todoText });
+        dispatch({ type: 'ADD_TODO', payload: todoText });
     }
 
     const completeTodo = todo => {

@@ -20,7 +20,7 @@ export const initialState ={
 
 export const reducer = (state, action) => {
     switch(action.type) {
-        case 'NEW_TODO':
+        case 'ADD_TODO':
             const newTodo = {
                 item: action.payload,
                 completed: false,
