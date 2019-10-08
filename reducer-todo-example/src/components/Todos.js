@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useReducer } from 'react';
+
+import { initialState, reducer } from '../reducers/todoReducer';
 
 import Todo from './Todo';
 
-const todos = [{
-    item: 'First Todo',
-    completed: false,
-    id: 1
-}]
-
 const Todos = () => {
+
+    const [ { todos }, dispatch ] = useReducer(reducer, initialState);
+
     return (
         <>
             <h1>Todos</h1>
