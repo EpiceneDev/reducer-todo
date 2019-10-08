@@ -9,7 +9,7 @@ const Todos = () => {
 
     const [ { todos }, dispatch ] = useReducer(reducer, initialState);
 
-    const AddNewTodo = todoText => {
+    const addNewTodo = todoText => {
         dispatch({ type: 'ADD_TODO', payload: todoText });
     }
 
@@ -28,7 +28,7 @@ const Todos = () => {
                 'Nothing to do, horray!' : 
                 todos.map(todo => <Todo key={todo.id} todo={todo.item} complete={todo.completed} clicked={() => completeTodo(todo)}/>)}
             </ul>
-            <AddTodoForm addNewTodo={AddNewTodo} />
+            <AddTodoForm addNewTodo={addNewTodo} />
             <button onClick={clearCompleted}>Clear Completed</button>
         </>
     );
