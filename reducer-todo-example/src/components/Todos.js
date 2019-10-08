@@ -13,12 +13,16 @@ const Todos = () => {
         dispatch({ type: 'NEW_TODO', payload: todoText });
     }
 
+    const completeTodo = todo => {
+        dispatch({ type: 'COMPLETE_TODO', payload: todo });
+    }
+
     return (
         <>
             <h1>Todos</h1>
             <ul style={{ 'listStyleType': 'none'}}>{!todos ? 
                 'Nothing to do, horray!' : 
-                todos.map(todo => <Todo key={todo.id} todo={todo.item}/>)}
+                todos.map(todo => <Todo key={todo.id} todo={todo.item} complete={todo.completed} clicked={() => completeTodo(todo)}/>)}
             </ul>
             <AddTodoForm addNewTodo={AddNewTodo} />
             <button>Clear Completed</button>

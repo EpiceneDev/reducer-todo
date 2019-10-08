@@ -29,6 +29,19 @@ export const reducer = (state, action) => {
             return {
                 todos: [ ...state.todos, newTodo ]
             }
+        case 'COMPLETE_TODO':
+            return {
+                todos: state.todos.map(todo => {
+                    if (todo.id === action.payload.id) {
+                        return {
+                            ...todo,
+                            completed: true
+                        }
+                    } else {
+                        return todo;
+                    }
+                })
+            }
         default:
             return state;
     }
