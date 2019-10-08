@@ -6,13 +6,13 @@ import './App.css';
 
 function App() {
  
-  
+  const [state, dispatch] = useReducer(reducer, initialState);
   
  
   return (
     <div className="App">
-      <TodoList />
-      <TodoForm />
+      <TodoList state={state} dispatch={dispatch} />
+      <TodoForm dispatch={dispatch} />
     </div>
   )
 } 
