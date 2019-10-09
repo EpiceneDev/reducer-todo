@@ -1,44 +1,28 @@
-import React, { useState, useReducer } from 'react';
-import { initialState, reducer } from "../reducers";
+import React, { useState } from 'react';
 
 
-const TodoForm = ({dispatch, state}) => {
-    const [item, setItem] = useState("");
+const TodoForm = props => {
+    const [todoText, setTodoText] = useState("");
 
-    const handleChange = event => setItem(event.target.value);
+    const handleChange = e => setTodoText(e.target.value);
 
-    const addTodo = (e) => {
+    const submitHandler = e => {
         e.preventDefault();
-        dispatch({
-          type: "ADD_TODO", 
-          payload: item
-        })
+        props.addTodo(todoText);
+        setTodoText('');
     }
   
-    const deleteTodo = (e) => {
-        e.preventDefault();
-        dispatch({
-            type: "REMOVE_TODO",
-            payload: state.completed
-        })
-    }
-    
+   
 
     return(
-        <form>
+        <form onSubmit={submitHandler}>
             <input 
                 type="text" 
-                name="item" 
-                placeholder="Task" 
-                value={item}
+                name="todo" 
+                placeholder="New Todo" 
+                value={todoText}
                 onChange={handleChange} />
-            <button onClick={() => {
-                    dispatch({ type: "UPDATE_TODO", payload: item });
-                    setItem("");
-                }}>Add Task</button>
-            <button onClick={() => {
-                    dispatchEvent({ type: "REMOVE_TODO", payload: item });
-                }}>Delete</button>
+            <button type="submit">Add Task</button>
         </form>
     );
 };

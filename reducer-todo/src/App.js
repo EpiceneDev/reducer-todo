@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import { reducer, initialState } from './reducers/index';
 import TodoList from './components/TodoList';
-import TodoForm from './components/TodoForm';
+// import TodoForm from './components/TodoForm';
 import './App.css';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <TodoList state={state} dispatch={dispatch} />
-      <TodoForm dispatch={dispatch} />
+      {/* <TodoForm dispatch={dispatch} /> */}
     </div>
   )
 } 
