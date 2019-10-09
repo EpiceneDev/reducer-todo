@@ -7,7 +7,7 @@ const TodoForm = ({dispatch, state}) => {
 
     const handleChange = event => setItem(event.target.value);
 
-    const addTodo = e => {
+    const addTodo = (e) => {
         e.preventDefault();
         dispatch({
           type: "ADD_TODO", 
@@ -15,7 +15,7 @@ const TodoForm = ({dispatch, state}) => {
         })
     }
   
-    const deleteTodo = e => {
+    const deleteTodo = (e) => {
         e.preventDefault();
         dispatch({
             type: "REMOVE_TODO",
